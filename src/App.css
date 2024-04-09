@@ -28,6 +28,31 @@
   color: #61dafb;
 }
 
+.sidebar-header-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container {
+  margin-top: 100px;
+}
+
+.filter-heading {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.select-category-field {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.select-product-field {
+  width: 100%;
+  margin-top: 50px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
