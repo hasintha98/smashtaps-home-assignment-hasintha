@@ -42,6 +42,10 @@
   font-weight: bold;
 }
 
+.clear-btn {
+  cursor: pointer;
+}
+
 .select-category-field {
   width: 100%;
   margin-top: 30px;

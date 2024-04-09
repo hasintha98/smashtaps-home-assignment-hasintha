@@ -83,7 +83,7 @@ function FilterSideBar({ updateProducts, updateCategories }) {
       <Box component="section" sx={{ p: 2, border: "1px solid black" }}>
         <div className="sidebar-header-section">
           <span className="filter-heading">Filters</span>
-          <span onClick={clear}>Clear</span>
+          <span onClick={clear} className="clear-btn">Clear</span>
         </div>
 
         <Select
