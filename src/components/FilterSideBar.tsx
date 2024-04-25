@@ -3,18 +3,21 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { CategoryService } from "../services/service";
+import { CategoryService } from "../services/service.tsx";
 import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { FilterSideBarProps, Product } from "../common/Interfaces";
 
-function FilterSideBar({ updateProducts, updateCategories }) {
-  const [selectedCategory, setSelectedCategory] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [btnDisabled, setBtnDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
+
+
+const FilterSideBar : React.FC<FilterSideBarProps> = ({ updateProducts, updateCategories }) => {
+  const [selectedCategory, setSelectedCategory] = useState<any>(0);
+  const [selectedProduct, setSelectedProduct] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [btnDisabled, setBtnDisabled] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     getAllCategories();
@@ -32,7 +35,7 @@ function FilterSideBar({ updateProducts, updateCategories }) {
 
   const getAllCategories = () => {
     CategoryService.getCategories()
-      .then((res) => {
+      .then((res: string[]) => {
         updateCategories(res);
         setCategories(res);
       })
@@ -41,10 +44,8 @@ function FilterSideBar({ updateProducts, updateCategories }) {
 
   const getAllProducts = () => {
     CategoryService.getProducts(selectedCategory)
-      .then((res) => {
-        console.log({ res });
-
-        setProducts(res.products);
+      .then((products: any) => {
+        setProducts(products);
       })
       .catch((e) => console.error(e));
   };
@@ -69,7 +70,7 @@ function FilterSideBar({ updateProducts, updateCategories }) {
   };
 
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
@@ -122,7 +123,7 @@ function FilterSideBar({ updateProducts, updateCategories }) {
           </MenuItem>
           {products?.map((product, key) => (
             <MenuItem key={key} value={product?.title}>
-              {product?.title}
+              {product?.title} 
             </MenuItem>
           ))}
         </Select>
