@@ -4,8 +4,7 @@ import HighchartsReact from "highcharts-react-official";
 import { DashboardChartsProps } from "../common/Interfaces";
 
 const DashboardCharts: React.FC<DashboardChartsProps> = ({ products, categories }) => {
-
-  const barChartOptions = {
+const barChartOptions = {
     chart: {
       type: "column",
     },
@@ -27,14 +26,12 @@ const DashboardCharts: React.FC<DashboardChartsProps> = ({ products, categories 
       {
         name: "Price",
         data: products?.map((item) => item.price),
-        // Enable data labels for the bar chart series
         dataLabels: {
           enabled: true,
-          // Optionally, you can customize the data labels' appearance
-          format: '{point.y}$', // Display the value of each data point
+          format: '{point.y}$', 
           style: {
             fontWeight: 'bold',
-            color: 'black', // Color of the data labels
+            color: 'black', 
           },
         },
       },
@@ -43,8 +40,8 @@ const DashboardCharts: React.FC<DashboardChartsProps> = ({ products, categories 
       column: {
         dataLabels: {
           enabled: true,
-          inside: false, // Place data labels above the bars
-          format: '{point.y}', // Display the value of each data point
+          inside: false, 
+          format: '{point.y}', 
         },
       },
     },
